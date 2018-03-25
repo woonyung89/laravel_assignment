@@ -66,6 +66,8 @@ Instruction:
 - By default, the username is root and you can leave the password field empty. (This is for Xampp) 
 - By default, the username is root and password is also root. (This is for Lamp)
 - Run php artisan key:generate
+  - if  Class 'Collective\Html\HtmlServiceProvider' not found
+  - run  composer require "laravelcollective/html":"^5.4.0"
 - Run php artisan migrate
 - Run php artisan serve
 - Go to localhost:8000
