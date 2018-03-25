@@ -68,6 +68,12 @@ Instruction:
 - Run php artisan key:generate
   - if  Class 'Collective\Html\HtmlServiceProvider' not found
   - run  composer require "laravelcollective/html":"^5.4.0"
+  - config/app.php
+    - 'provider'=>[
+      //...
+      Collective\Html\HtmlServiceProvider::class,
+      //...
+    ]
 - Run php artisan migrate
 - Run php artisan serve
 - Go to localhost:8000
