@@ -7,5 +7,5 @@ use App\Common;
 
 @section('content')
 <!-- Bootstrap Boilerplate... -->
-weee
+weee lul abeng
 @endsection
