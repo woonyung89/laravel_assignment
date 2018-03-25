@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/student', 'StudentController@index')->name('student.index');
+//Route::resource('/student','StudentController',['except'=>['destroy',]]);
+//Route::resource('/lecturer', 'LecutrerController',['except'=>['destroy',]]);
+//Route::resource('/club','ClubController',['except'=>['destroy',]]);
