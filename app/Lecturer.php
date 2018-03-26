@@ -12,10 +12,13 @@ class Lecturer extends Model
 		'nric',
 		'name',
     'address',
+    'count',
+    'gender',
+    'phone',
   ];
 
 
     public function clubs(){
-      return $this -> belongsTo(Club::class);
+      return $this -> belongsToMany(Club::class);
     }
 }

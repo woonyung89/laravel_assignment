@@ -11,18 +11,17 @@ use App\Common;
 
 <div class="panel-body">
 
-  @if (count($students) > 0)
+  @if (count($lecturers) > 0)
   <table class="table table-striped task-table">
 
     <!-- Table Headings -->
     <thead>
       <tr>
         <th>No.</th>
-        <th>Student ID</th>
+        <th>Lecturer ID</th>
         <th>Name</th>
         <th>Gender</th>
         <th>Address</th>
-        <th>Faculty</th>
         <th>phone</th>
         <th>Created</th>
         <th>Actions</th>
@@ -31,59 +30,50 @@ use App\Common;
 
     <!-- Table Body -->
     <tbody>
-      @foreach ($students as $i => $student)
+      @foreach ($lecturers as $i => $lecturer)
       <tr>
         <td class="table-text">
           <div>{{ $i+1 }}</div>
         </td>
         <td class="table-text">
           <div>
-            {!! link_to_route(
-                          'student.show',
-                          $title = $student->student_id,
-                          $parameters = [
-                          'id' => $student->id,
-                          ]
-                          ) !!}
+            <div>{{ $lecturer->lecturer_id }}</div>
           </div>
         </td>
         <td class="table-text">
-          <div>{{ $student->name }}</div>
+          <div>{{ $lecturer->name }}</div>
         </td>
         <td class="table-text">
-          <div>{{ Common::$gender[$student->gender] }}</div>
+          <div>{{ Common::$gender[$lecturer->gender] }}</div>
         </td>
         <td class="table-text">
-          <div>{{ $student->address}}</div>
-        </td>
-
-        <td class="table-text">
-          <div>{{ Common::$faculty[$student->faculty] }}</div>
-        </td>
-        <td class="table-text">
-          <div>{{ $student->phone }}</div>
+          <div>{{ $lecturer->address}}</div>
         </td>
 
         <td class="table-text">
-          <div>{{ $student->created_at }}</div>
+          <div>{{ $lecturer->phone }}</div>
+        </td>
+        <td class="table-text">
+          <div>{{ $lecturer->created_at }}</div>
         </td>
         <td class="table-text">
           <div>
             {!! link_to_route(
-                          'student.join',
+                          'lecturer.join',
                           $title = 'Join',
                           $parameters = [
-                          'id' => $student->id,
+                          'id' => $lecturer->id,
                           ]
                           ) !!}
             {!! link_to_route(
-                          'student.edit',
+                          'lecturer.edit',
                           $title = 'Edit',
                           $parameters = [
-                          'id' => $student->id,
+                          'id' => $lecturer->id,
                           ]
                           ) !!}
           </div>
+
         </tr>
         @endforeach
       </tbody>
@@ -94,5 +84,5 @@ use App\Common;
     </div>
     @endif
   </div>
-  {{-- {{$students->links()}} --}}
+  {{-- {{$lecturers->links()}} --}}
   @endsection

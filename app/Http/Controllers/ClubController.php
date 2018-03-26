@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Club;
 
 class ClubController extends Controller
 {
@@ -11,9 +12,16 @@ class ClubController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+      $clubs = Club::orderBy('code','asc')
+      -> when($request -> query('name'), function($query) use ($request){
+        return $query -> where('name','like','%'.$request -> query('name').'%');
+      })
+      -> paginate(10);
+      return view('clubs.index',[
+        'clubs'=>$clubs
+      ]);
     }
 
     /**
@@ -24,6 +32,10 @@ class ClubController extends Controller
     public function create()
     {
         //
+        $club = new Club();
+        return view('clubs.create',[
+          'club'=>$club,
+        ]);
     }
 
     /**
@@ -35,6 +47,11 @@ class ClubController extends Controller
     public function store(Request $request)
     {
         //
+        $club = new Club();
+        $club->fill($request->all());
+        $club->save();
+
+        return redirect()->route('club.index');
     }
 
     /**

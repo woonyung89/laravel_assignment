@@ -13,11 +13,13 @@ class Student extends Model
 		'name',
     'address',
     'faculty',
+    'phone',
+    'gender',
 
 	];
 
 
   public function clubs(){
-    return $this -> belongsTo(Club::class);
+    return $this -> belongsToMany(Club::class);
   }
 }

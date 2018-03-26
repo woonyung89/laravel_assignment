@@ -16,10 +16,10 @@ class Club extends Model
 
 public function students()
   {
-    return $this->hasMany(Student::class);
+    return $this->belongsToMany(Student::class);
   }
   public function lecturers()
   {
-    return $this->hasMany(Lecturer::class);
+    return $this->belongsToMany(Lecturer::class);
   }
 }

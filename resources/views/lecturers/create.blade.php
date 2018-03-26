@@ -1,7 +1,6 @@
 <?php
 
 use App\Common;
-use App\Division;
 
 ?>
 @extends('layouts.app')
@@ -12,8 +11,8 @@ use App\Division;
 
 <div class="panel-body">
   <!--New Division Form-->
-  {!! Form::model($student,[
-    'route' => ['student.store'],
+  {!! Form::model($lecturer,[
+    'route' => ['lecturer.store'],
     'class'=>'form-horizontal'
     ])!!}
 
@@ -28,13 +27,13 @@ use App\Division;
       </ul>
     </div>
     @endif
-    <!-- studentship_no -->
+    <!-- lecturership_no -->
     <div class="form-group row">
-      {!!Form::label('student-id','student ID',[
+      {!!Form::label('lecturer-id','lecturer ID',[
       'class'=>'control-label col-sm-3',])!!}
       <div class="col-sm-9">
-        {!!Form::text('student_id', null,[
-        'id'=>'student-id',
+        {!!Form::text('lecturer_id', null,[
+        'id'=>'lecturer-id',
         'class'=>'form-control',
         'maxlength'=>10,
         ])!!}
@@ -42,11 +41,11 @@ use App\Division;
     </div>
     <!--NRIC-->
     <div class="form-group row">
-      {!!Form::label('student-ic','NRIC',[
+      {!!Form::label('lecturer-ic','NRIC',[
       'class'=>'control-label col-sm-3',])!!}
       <div class="col-sm-9">
         {!!Form::text('nric', null,[
-        'id'=>'student-ic',
+        'id'=>'lecturer-ic',
         'class'=>'form-control',
         'maxlength'=>12,
         ])!!}
@@ -54,12 +53,12 @@ use App\Division;
     </div>
     <!--Name-->
     <div class="form-group row">
-      {!!Form::label('student-name','Name',[
+      {!!Form::label('lecturer-name','Name',[
       'class'=>'control-label col-sm-3',
       ])!!}
       <div class="col-sm-9">
         {!!Form::text('name',null,[
-        'id'=>'student-name',
+        'id'=>'lecturer-name',
         'class' =>'form-control',
         'maxlength'=>100,
         ])!!}
@@ -67,7 +66,7 @@ use App\Division;
     </div>
     <!--Gender-->
     <div class="form-group row">
-      {!!Form::label('student-gender','Gender',[
+      {!!Form::label('lecturer-gender','Gender',[
       'class'=>'control-label col-sm-3',
       ])!!}
       <div class="col-sm-9">
@@ -76,27 +75,14 @@ use App\Division;
         @endforeach
       </div>
     </div>
-    <div class="form-group row">
-      {!!Form::label('student-faculty','Faculty',[
-      'class'=>'control-label col-sm-3',
-      ])!!}
-      <div class="col-sm-9">
-        {!!Form::select('faculty',Common::$faculty,null,[
-        'class'=>'form-control',
-        'placeholder'=>'- Select Faculty -',
-        ])!!}
-      </div>
-    </div>
-
-
     <!--phone-->
     <div class="form-group row">
-      {!!Form::label('student-phone','Phone',[
+      {!!Form::label('lecturer-phone','Phone',[
       'class'=>'control-label col-sm-3',
       ])!!}
       <div class="col-sm-9">
         {!!Form::text('phone',null,[
-        'id'=>'student-phone',
+        'id'=>'lecturer-phone',
         'class'=>'form-control',
         'maxlength'=>11,
         ])!!}
@@ -105,20 +91,16 @@ use App\Division;
 
     <!--Address-->
     <div class="form-group row">
-      {!!Form::label('student-address','Address',[
+      {!!Form::label('lecturer-address','Address',[
       'class'=>'control-label col-sm-3',
       ])!!}
       <div class="col-sm-9">
         {!!Form::textarea('address',null,[
-        'id'=>'student-address',
+        'id'=>'lecturer-address',
         'class'=>'form-control',
         ])!!}
       </div>
     </div>
-
-
-
-
     <!--Submit Button-->
     <div class="form-group row">
       <div class="col-sm-offset-3 col-sm-6">
